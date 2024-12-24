@@ -1,0 +1,63 @@
+.dashboard {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+  }
+  .error {
+    color: red;
+    margin-bottom: 20px;
+  }
+  .room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .occupied {
+    background-color: red;
+    color: white;
+  }
+  .available {
+    background-color: green;
+    color: white;
+  }
+  .room-number {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .room-name {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  .room-status {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .room:hover {
+    opacity: 0.8;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
