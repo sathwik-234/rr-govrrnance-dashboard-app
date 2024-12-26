@@ -45,6 +45,7 @@ h1 {
   justify-content: center;
   width: 100%; /* Fixed width */
   height: 8vh; /* Fixed height */
+  max-height: 8vh;
   background-color: lightgray;
   padding: 10px;
   border-radius: 10px;
