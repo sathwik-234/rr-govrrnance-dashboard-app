@@ -56,9 +56,9 @@ h1 {
 }
 
 .room-number {
-  font-size: 18px; /* Adjust font size */
+  font-size: 17px; /* Adjust font size */
   font-weight: bold; /* Bold text */
-  margin-bottom: 2px; /* Add space between room number and room name */
+  margin-bottom: 1px; /* Add space between room number and room name */
 }
 
 .room-name {
