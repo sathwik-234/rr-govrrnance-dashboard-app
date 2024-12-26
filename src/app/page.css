@@ -54,10 +54,26 @@ h1 {
   box-sizing: border-box; /* Include padding in width and height */
 }
 
+.room-number {
+  font-size: 18px; /* Adjust font size */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 2px; /* Add space between room number and room name */
+}
+
+.room-name {
+  font-size: 12px; /* Adjust font size */
+  /* font-weight: bold; Bold text */
+  /* margin-bottom: 5px; Add space between room name and room status */
+}
+
+.room-status {
+  font-size: 12px; /* Adjust font size */
+  /* font-weight: bold; Bold text */
+}
+
 .room-number,
 .room-name,
 .room-status {
-  font-size: 12px; /* Adjust font size */
   line-height: 1.2; /* Control spacing between lines */
   word-wrap: break-word; /* Break long words */
   text-align: center; /* Center text */
