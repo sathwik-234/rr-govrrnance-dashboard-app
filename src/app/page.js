@@ -61,7 +61,7 @@ export default function Home() {
             >
               <div className="room-number">{room.room_no}</div>
               <div className="room-name">
-                {room.Crew && room.Crew.crewname ? `(${room.Crew.crewname})` : "Available"}
+                {room.Crew && room.Crew.crewname ? `${room.Crew.crewname}` : "Available"}
               </div>
               <div className="room-name">
                 {room.Crew && room.Crew.hq ? `(${room.Crew.hq})` : "N/A"}
