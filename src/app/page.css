@@ -1,22 +1,12 @@
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
-  /* padding: 0; */
   text-align: center;
   background-color: #f4f4f4;
-  /* padding: 1%; */
 }
-
-
-
-
 
 .dashboard {
   padding: 20px;
-}
-
-h1 {
-  margin-bottom: 20px;
 }
 
 .error {
@@ -24,12 +14,62 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* Large title */
+.title {
+  font-size: 1.5rem; /* Very big title */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Side by side totals section */
+.totals {
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* Add space between items */
+  margin-top: 20px;
+}
+
+.total-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between box and text */
+  font-size: 14px; /* Smaller font size for totals */
+  color: #333;
+}
+
+.total-item p {
+  margin: 0px;
+  font-size: 14px; /* Ensure totals are smaller */
+  font-weight: normal;
+  color: #555;
+}
+
+.total-item p:last-child {
+  font-size: 16px;
+  color: #007bff; /* Blue color for emphasis */
+}
+
 .room-grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr); /* Default: 10 rooms per row */
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
+
+.status-box {
+  width: 20px; /* Width of the colored box */
+  height: 20px; /* Height of the colored box */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.status-box.occupied {
+  background-color: red;
+}
+
+.status-box.available {
+  background-color: green;
+}
+
 
 /* For screens below 1000px, use 5 rooms per row */
 @media (max-width: 1000px) {
@@ -39,16 +79,16 @@ h1 {
 }
 
 .room {
+  font-family: "Montserrat",sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%; /* Fixed width */
-  height: 8vh; /* Fixed height */
-  max-height: 8vh;
+  height: 30vh; /* Fixed height */
+  max-height: 12.5vh;
   background-color: lightgray;
-  padding: 10px;
-  border-radius: 10px;
+  border-radius:  10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: center;
@@ -63,13 +103,10 @@ h1 {
 
 .room-name {
   font-size: 12px; /* Adjust font size */
-  /* font-weight: bold; Bold text */
-  /* margin-bottom: 5px; Add space between room name and room status */
 }
 
 .room-status {
   font-size: 12px; /* Adjust font size */
-  /* font-weight: bold; Bold text */
 }
 
 .room-number,
@@ -95,10 +132,6 @@ h1 {
 .available {
   background-color: green;
   color: white;
-}
-
-.room:hover {
-  opacity: 0.8;
 }
 
 button {

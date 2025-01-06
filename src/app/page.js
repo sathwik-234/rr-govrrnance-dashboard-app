@@ -44,10 +44,38 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
+  // Calculate the total number of occupied and available rooms
+  const { occupiedCount, availableCount } = occupancyData.reduce(
+    (counts, room) => {
+      if (room.status) {
+        counts.occupiedCount++;
+      } else {
+        counts.availableCount++;
+      }
+      return counts;
+    },
+    { occupiedCount: 0, availableCount: 0 }
+  );
+
   return (
     <div className="dashboard">
       {/* Display error message */}
       {error && <p className="error">Error: {error}</p>}
+
+      {/* Large title */}
+      <div className="title">VIZIANAGARAM RUNNING ROOM - WALTAIR DIVISION</div>
+
+      {/* Smaller totals */}
+      <div className="totals">
+        <div className="total-item">
+          <div className="status-box occupied"></div>
+          <p>Total Occupied: {occupiedCount}</p>
+        </div>
+        <div className="total-item">
+          <div className="status-box available"></div>
+          <p>Total Available: {availableCount}</p>
+        </div>
+      </div>
 
       {/* Show loading indicator */}
       {isLoading ? (
@@ -66,7 +94,10 @@ export default function Home() {
               <div className="room-name">
                 {room.Crew && room.Crew.hq ? `(${room.Crew.hq})` : "N/A"}
               </div>
+              <div className="room-name">
+                {room.Crew && room.Crew.designation ? `(${room.Crew.designation})` : "N/A"}
             </div>
+          </div>
           ))}
         </div>
       )}
