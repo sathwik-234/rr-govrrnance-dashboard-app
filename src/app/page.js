@@ -38,23 +38,25 @@ export default function Home() {
     // Set an interval to refresh data every 60 seconds (1 minute)
     const intervalId = setInterval(() => {
       fetchOccupancyData();
-    }, 300000); // 60000 ms = 1 minute
+    }, 60000); // 300000 ms = 5 minutes
 
     // Clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
   }, []);
 
-  // Calculate the total number of occupied and available rooms
-  const { occupiedCount, availableCount } = occupancyData.reduce(
+  // Calculate the total number of occupied, available, and hold rooms
+  const { occupiedCount, availableCount, holdCount } = occupancyData.reduce(
     (counts, room) => {
-      if (room.status) {
+      if (room.status && room.alloted_to) {
         counts.occupiedCount++;
+      } else if (!room.alloted_to && room.status) {
+        counts.holdCount++;
       } else {
         counts.availableCount++;
       }
       return counts;
     },
-    { occupiedCount: 0, availableCount: 0 }
+    { occupiedCount: 0, availableCount: 0, holdCount: 0 }
   );
 
   return (
@@ -75,6 +77,10 @@ export default function Home() {
           <div className="status-box available"></div>
           <p>Total Available: {availableCount}</p>
         </div>
+        <div className="total-item">
+          <div className="status-box hold"></div>
+          <p>Total Hold: {holdCount}</p>
+        </div>
       </div>
 
       {/* Show loading indicator */}
@@ -85,7 +91,13 @@ export default function Home() {
           {occupancyData.map((room) => (
             <div
               key={room.id}
-              className={`room ${room.status ? "occupied" : "available"}`}
+              className={`room ${
+                room.status
+                  ? "hold"
+                  : room.alloted_to
+                  ? "occupied"
+                  : "available"
+              }`}
             >
               <div className="room-number">{room.room_no}</div>
               <div className="room-name">
@@ -96,8 +108,8 @@ export default function Home() {
               </div>
               <div className="room-name">
                 {room.Crew && room.Crew.designation ? `(${room.Crew.designation})` : "N/A"}
+              </div>
             </div>
-          </div>
           ))}
         </div>
       )}

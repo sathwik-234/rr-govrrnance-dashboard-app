@@ -78,6 +78,12 @@ body {
   }
 }
 
+.room.hold {
+  background-color: grey;
+  color: white;
+}
+
+
 .room {
   font-family: "Montserrat",sans-serif;
   display: flex;
