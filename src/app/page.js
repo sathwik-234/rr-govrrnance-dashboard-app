@@ -38,7 +38,7 @@ export default function Home() {
     // Set an interval to refresh data every 60 seconds (1 minute)
     const intervalId = setInterval(() => {
       fetchOccupancyData();
-    }, 60000); // 60000 ms = 1 minute
+    }, 300000); // 60000 ms = 1 minute
 
     // Clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
