@@ -79,8 +79,8 @@ body {
 }
 
 .room.hold {
-  background-color: grey;
-  color: white;
+  background-color: rgb(237, 233, 12);
+  color: rgb(0, 0, 0);
 }
 
 

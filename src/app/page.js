@@ -47,9 +47,9 @@ export default function Home() {
   // Calculate the total number of occupied, available, and hold rooms
   const { occupiedCount, availableCount, holdCount } = occupancyData.reduce(
     (counts, room) => {
-      if (room.status && room.alloted_to) {
+      if (room.status && room.allotted_to) {
         counts.occupiedCount++;
-      } else if (!room.alloted_to && room.status) {
+      } else if ( room.status  && !room.alloted_to) {
         counts.holdCount++;
       } else {
         counts.availableCount++;
@@ -92,9 +92,9 @@ export default function Home() {
             <div
               key={room.id}
               className={`room ${
-                room.status
+                room.status && !room.allotted_to
                   ? "hold"
-                  : room.alloted_to
+                  : room.allotted_to
                   ? "occupied"
                   : "available"
               }`}
